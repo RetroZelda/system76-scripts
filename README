@@ -1,0 +1,4 @@
+Run these in this order:
+
+1) build-drivers.sh
+2) install-config.sh
