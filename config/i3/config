@@ -242,11 +242,12 @@ mode "$mode_gaps_outer" {
 #         status_command i3status
 # }
 
-exec --no-startup-id ~/.config/polybar/scripts/poll-kb-color.sh
-exec --no-startup-id ~/.config/startup/start-kbd-lighter.sh
-exec --no-startup-id ~/.config/startup/set-local-fonts.sh
-exec --no-startup-id ~/.config/startup/start-wireless.sh
-exec --no-startup-id ~/.config/startup/start-polybar.sh
+exec_always --no-startup-id ~/.config/startup/start-polybar.sh
+exec_always --no-startup-id ~/.config/startup/start-system76.sh
+exec_always --no-startup-id ~/.config/startup/start-wireless.sh
+exec_always --no-startup-id ~/.config/startup/set-local-fonts.sh
+exec_always --no-startup-id ~/.config/startup/start-kbd-lighter.sh
+# exec_always --no-startup-id ~/.config/polybar/scripts/poll-kb-color.sh
 
 exec i3-msg 'workspace 2; append_layout /home/retrozelda/.config/i3/workspace-layouts/workspace-2.json'
 exec i3-msg 'workspace 2; exec conky -d -c ~/.config/conky/config'
