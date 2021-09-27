@@ -242,6 +242,7 @@ mode "$mode_gaps_outer" {
 #         status_command i3status
 # }
 
+exec_always --no-startup-id ~/.config/startup/run-wallpaper.sh
 exec_always --no-startup-id ~/.config/startup/start-polybar.sh
 exec_always --no-startup-id ~/.config/startup/start-system76.sh
 exec_always --no-startup-id ~/.config/startup/start-wireless.sh
