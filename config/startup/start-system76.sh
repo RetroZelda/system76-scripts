@@ -1,10 +1,9 @@
 #!/bin/bash
 
-if [ -e /opt/system76-drivers/install-drivers.sh ]
-	sudo /opt/system76-drivers/install-drivers.sh
+INSTALL_DRIVERS=/opt/system76-drivers/install-drivers.sh
+if [ -f "$INSTALL_DRIVERS" ]; then
+	sudo $INSTALL_DRIVERS
 else
-	# try to build everything. probably not a good idea
-	#git clone https://github.com/RetroZelda/system76-scripts.git /tmp/system76-scripts
-	#cd /tmp/system76-scripts
-	#./build-drivers.sh
+	echo missing installation script: $INSTALL_DRIVERS
+	echo install things from here: https://github.com/RetroZelda/system76-scripts.git
 fi
