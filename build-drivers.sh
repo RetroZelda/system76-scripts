@@ -13,6 +13,7 @@ sudo rm -d -r -f $DRIVER_INSTALL_DIR
 sudo mkdir $DRIVER_INSTALL_DIR
 sudo touch $DRIVER_INSTALL_SCRIPT
 sudo chmod +x $DRIVER_INSTALL_SCRIPT
+echo "#!/bin/bash" |  sudo tee -a $DRIVER_INSTALL_SCRIPT >> /dev/null
 echo modprobe wmi | sudo tee -a $DRIVER_INSTALL_SCRIPT >> /dev/null
 
 git clone https://github.com/pop-os/system76-firmware.git
@@ -35,7 +36,7 @@ cd system76-dkms
 make
 sudo cp system76-io.ko $DRIVER_INSTALL_DIR
 echo modprobe -r system76 | sudo tee -a $DRIVER_INSTALL_SCRIPT >> /dev/null 
-echo insmod system76.ko | sudo tee -a $DRIVER_INSTALL_SCRIPT >> /dev/null 
+echo insmod $DRIVER_INSTALL_DIR/system76.ko | sudo tee -a $DRIVER_INSTALL_SCRIPT >> /dev/null 
 cd ../
 
 git clone https://github.com/pop-os/system76-io-dkms.git
@@ -43,7 +44,7 @@ cd system76-io-dkms
 make
 sudo cp system76-io.ko $DRIVER_INSTALL_DIR
 echo modprobe -r system76-io | sudo tee -a $DRIVER_INSTALL_SCRIPT >> /dev/null 
-echo insmod system76-io.ko | sudo tee -a $DRIVER_INSTALL_SCRIPT >> /dev/null 
+echo insmod $DRIVER_INSTALL_DIR/system76-io.ko | sudo tee -a $DRIVER_INSTALL_SCRIPT >> /dev/null 
 cd ../
 
 git clone https://github.com/pop-os/system76-acpi-dkms.git
@@ -51,7 +52,7 @@ cd system76-acpi-dkms
 make
 sudo cp system76_acpi.ko $DRIVER_INSTALL_DIR
 echo modprobe -r system76_acpi | sudo tee -a $DRIVER_INSTALL_SCRIPT >> /dev/null 
-echo insmod system76_acpi.ko | sudo tee -a $DRIVER_INSTALL_SCRIPT >> /dev/null 
+echo insmod $DRIVER_INSTALL_DIR/system76_acpi.ko | sudo tee -a $DRIVER_INSTALL_SCRIPT >> /dev/null 
 cd ../
 
 git clone https://github.com/pop-os/system76-oled.git
