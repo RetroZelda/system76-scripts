@@ -1,0 +1,17 @@
+[module/system76-read-color]
+type = custom/script
+
+exec = ./read-color.sh
+
+; Conditional command that, if defined, needs to exit successfully
+; before the main exec command is invoked.
+; Default: ""
+; exec-if = pgrep -x myservice
+
+; Will the script output continous content?
+; Default: false
+tail = true
+
+; Seconds to sleep between updates
+; Default: 5 (0 if `tail = true`)
+interval = 1
